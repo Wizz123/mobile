@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Forum.Registration">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CustomEntryStyle" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="White" />
+                <!-- Тут ви можете налаштувати інші властивості Entry -->
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="0,160,0,0" Padding="20">
+            <Entry Placeholder="Номер телефона" x:Name="phoneNumberEntry" />
+            <Entry Placeholder="Эл. почта" x:Name="emailEntry" />
+            <Entry Placeholder="Имя" x:Name="nameEntry" />
+            <Entry Placeholder="Логин" x:Name="usernameEntry" />
+            <Entry Placeholder="Пароль" IsPassword="True" x:Name="passwordEntry" />
+
+            <Button Margin="0,30,0,0" Text="Зареєструватися" VerticalOptions="Center" BorderWidth="1.5" CornerRadius="50" Clicked="OnRegisterButtonClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

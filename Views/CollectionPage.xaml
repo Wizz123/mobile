@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Forum.CollectionPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="ButtonStack" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="10" IsVisible="False">
+                <Button Text="Удалить елемент" FontSize="14" BorderWidth="1.5" CornerRadius="50" HorizontalOptions="End" WidthRequest="160" Clicked="Button_Clicked_2"/>
+            </StackLayout>
+            <CollectionView ItemsSource ="{Binding Coins}"
+                            SelectionMode="Single"
+                            SelectionChanged="OnSelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10"
+                              RowDefinitions="Auto, *"
+                              ColumnDefinitions="Auto, *">
+                            <Image Grid.RowSpan="2"
+                                   Source="{Binding Image}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="100"
+                                   WidthRequest="100" />
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Country}"
+                                   VerticalOptions="End" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

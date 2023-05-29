@@ -1,0 +1,50 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Forum.UserPage">
+    <StackLayout Padding="10">
+        <Label x:Name="MainLabel" Text="Профіль користувача" FontSize="24" HorizontalOptions="CenterAndExpand" Margin="0,20,0,10" />
+        <Image x:Name="Logo" Margin="0, 50, 10, 0" Source="logo.png" WidthRequest="180" HeightRequest="180"></Image>
+        <Image x:Name="Man" Source="UserIcon.jpg" HorizontalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="100" IsVisible="False"/>
+        <Label x:Name="emailEntry" FontSize="16" Margin="10,5"/>
+       
+        <Label x:Name="phoneEntry" FontSize="16" Margin="10,0"/>
+
+        <Label x:Name="nameEntry" FontSize="16" Margin="10,0"/>
+
+        <Label x:Name="loginEntry" FontSize="16" Margin="10,0"/>
+  
+        <Label x:Name="registrationDateLabel" FontSize="16" Margin="10,0"/>
+        
+        
+        <StackLayout x:Name="ButtonOfReg" Orientation="Horizontal" Margin="45,20,0,0" IsVisible="{Binding IsAuthorized}">
+            <Button Text="Авторизація" BorderWidth="1.5" CornerRadius="50" WidthRequest="140" Clicked="OnLoginButtonClicked" />
+            <Button Text="Реєстрація"  BorderWidth="1.5" CornerRadius="50" WidthRequest="140" Clicked="OnRegisterButtonClicked" />
+        </StackLayout>
+        <StackLayout>
+            <Label x:Name="UsersCollectionsLabel" Text="Колекції користувача" HorizontalOptions="CenterAndExpand" FontSize="21" Margin="0,10,0,0"/>
+        </StackLayout>
+        
+        <StackLayout x:Name="GetCollection" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" IsVisible="False">
+            <Button Text="Відкрити колекцію" VerticalOptions="Center" BorderWidth="1.5" CornerRadius="50" WidthRequest="160"  Clicked="GetCollectionButtonClicked" />
+        </StackLayout>
+        <CollectionView ItemsSource ="{Binding Collections}"
+                            SelectionMode="Single"
+                            SelectionChanged="OnSelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10"
+                              RowDefinitions="Auto, *"
+                              ColumnDefinitions="Auto, *">
+                        
+                        <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold" />
+                        
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button x:Name="AddCollectionButton" VerticalOptions="Center" BorderWidth="1.5" CornerRadius="50" Text="Добавити колекцію" Clicked="OnAddCollectionButtonClicked" />
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MyProjectModile"
+             x:Class="Forum.AddCollectionPage">
+
+    <StackLayout Padding="20">
+        <Label Text="Название коллекции" FontSize="20" />
+        <Entry x:Name="collectionEntry" Placeholder="Введите название коллекции" />
+
+        <Label Text="Выберите тип коллекции" FontSize="20" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Label Text="Монети" FontSize="20" />
+            <Switch x:Name="collectionTypeSwitch" />
+            <Label Text="Банкноти" FontSize="20" />
+        </StackLayout>
+        <Button Text="Добавить" BorderWidth="1.5" CornerRadius="50" Clicked="AddButton_Clicked" />
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Forum"
+             x:Class="Forum.ChatPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Чат" FontSize="24" HorizontalOptions="CenterAndExpand" />
+
+            <ListView x:Name="messageList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label FontSize="16" FontAttributes="Bold" Text="{Binding UserLogin}" />
+                                <FlexLayout Grid.Column="1" Wrap="Wrap">
+                                    <Label LineBreakMode="WordWrap" Text="{Binding MessageBody}" />
+                                </FlexLayout>
+                                <Label Grid.Column="2" FontSize="12" TextColor="Gray" LineBreakMode="WordWrap">
+                                    <Label.Text>
+                                        <Binding Path="SendData">
+                                            <Binding.StringFormat>
+                                                <x:String>{0:dd.MM.yyyy HH:mm}</x:String>
+                                            </Binding.StringFormat>
+                                        </Binding>
+                                    </Label.Text>
+                                </Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Entry x:Name="messageEntry" Placeholder="Напишіть повідомлення" Keyboard="Text" />
+
+            <Button x:Name="sendButton" Text="Відправити" BackgroundColor="#4CAF50" TextColor="White" Clicked="OnSendButtonClicked" />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

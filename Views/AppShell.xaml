@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:Forum" xmlns:views1="clr-namespace:Forum.Views" x:DataType="views1:AppShell"
+       x:Class="Forum.Views.AppShell">
+    <TabBar>
+        <Tab Title="Головна" Icon="Main.png">
+            <ShellContent>
+                <views:Test Title="Головна"/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Форум" Icon="Forum.png">
+            <ShellContent>
+                <views:CreateChatPage Title="Форум"/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Обране" Icon="Like.png">
+            <ShellContent>
+                <views:FavoritesPage Title="Обране"/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Кабінет" Icon="Cabinet.png">
+            <ShellContent>
+                <views:UserPage Title="Кабінет"/>
+            </ShellContent>
+        </Tab>
+    </TabBar>
+</Shell>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Forum.Test">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Entry x:Name="SearchEntry" Placeholder="Пошук" HorizontalOptions="FillAndExpand" />
+                <Button Text="Знайти" FontSize="14" BorderWidth="1.5" CornerRadius="50" HorizontalOptions="End" WidthRequest="80" Clicked="Button_Clicked"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Button Text="Монети" FontSize="14" BorderWidth="1.5" CornerRadius="50" HorizontalOptions="End" WidthRequest="100" Clicked="Button_Clicked_2"/>
+                <Button Text="Банкноти" FontSize="14" BorderWidth="1.5" CornerRadius="50" HorizontalOptions="End" WidthRequest="100" Clicked="Button_Clicked_1"/>
+            </StackLayout>
+            <StackLayout x:Name="ButtonStack" Orientation="Horizontal" Margin="10" IsVisible="False">
+                <Button Text="Добавити в обране" BorderWidth="1.5" CornerRadius="50" FontSize="12" HorizontalOptions="End" WidthRequest="100" Clicked="AddToFavorites_Clicked" />
+                <Button Text="Добавити в колекцію" BorderWidth="1.5" CornerRadius="50" FontSize="12" HorizontalOptions="End" WidthRequest="100" Clicked="AddToCollection_Clicked" />
+                <Button Text="Інфо" FontSize="12" BorderWidth="1.5" CornerRadius="50" HorizontalOptions="End" WidthRequest="100" Clicked="Info_Clicked" />
+            </StackLayout>
+            <CollectionView ItemsSource ="{Binding Coins}"
+                            SelectionMode="Single"
+                            SelectionChanged="OnSelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10"
+                              RowDefinitions="Auto, *"
+                              ColumnDefinitions="Auto, *">
+                            <Image Grid.RowSpan="2"
+                                   Source="{Binding Image}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="100"
+                                   WidthRequest="100" />
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Description}"
+                                   VerticalOptions="End" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

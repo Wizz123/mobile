@@ -1,0 +1,25 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Forum"
+             x:Class="Forum.CreateChatPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="chatList"
+                      SeparatorVisibility="Default"
+                      SeparatorColor="Gray"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" BackgroundColor="White">
+                                <Label Text="{Binding ChatName}" FontSize="16" FontAttributes="Bold"/>
+                                <Label Text="{Binding ChatTopic}" FontSize="14" FontAttributes="Italic"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="createButton" BorderWidth="1.5" CornerRadius="50" Text="Створити чат"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
